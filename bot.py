@@ -8,6 +8,7 @@ from os import environ
 from datetime import datetime
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
+logger = logging.getLogger(__name__)
 
 PORT = int(os.environ.get('PORT', '8443'))
 # Define a few command handlers. These usually take the two arguments update and
