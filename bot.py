@@ -20,7 +20,7 @@ list_of_timings = [["Bishan ", "Century ", "JCube  ", "Keat   ", "Kebun  ", "Bed
 LINK = "https://smartentry.org/status/gymmboxx"
 
 TOKEN = "1515402417:AAFyxj3pruXCOqF5zUsFgeyc15CBrGmXSWA"
-APP_NAME = "https://gymbott.herokuapp.com/"
+APP_NAME = "https://gymmbott.herokuapp.com/"
 
 START_MESSAGE = "*I can send you current gymmboxx capacities!!*\n" + \
                 "_I am in no way affliated to gymmboxx, just a fan  :)_\n\n" + \
