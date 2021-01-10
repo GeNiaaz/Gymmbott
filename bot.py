@@ -6,6 +6,7 @@ import logging
 import os
 from os import environ
 from datetime import datetime
+from pytx import timezone
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
 logger = logging.getLogger(__name__)
@@ -131,8 +132,10 @@ def print_list(list, index):
     counter = 0
     final_str = []
 
-    now = datetime.now()
-    curr_time = now.strftime("%d/%m/%Y %H:%M:%S")
+    now_USA = datetime.now(timezone('US/Pacific'))
+    now_SG = now_USA.astimezone(timezone('Asia/Singapore'))
+
+    curr_time = now_SG.strftime("%d/%m/%Y %H:%M:%S")
     curr_time_str = "*Accurate as of: " + curr_time + "*\n\n"
  
     for gym in list[0]:
