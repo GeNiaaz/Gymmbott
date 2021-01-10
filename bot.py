@@ -26,7 +26,7 @@ APP_NAME = os.environ.get("APP_NAME")
 
 START_MESSAGE = "*I can send you current gymmboxx capacities!!*\n" + \
                 "_I am in no way affliated to gymmboxx, just a fan  :)_\n\n" + \
-                "Get capacity for " + \
+                "Get capacity for\n" + \
                 "/all : all gymmboxx\n" + \
                 "/bishan : Bishan gymmboxx\n" + \
                 "/century : Century Square gymmboxx\n" + \
