@@ -122,7 +122,7 @@ def crawl(link):
         queuing_text = queuing.text
         list_of_queuing.append(queuing_text)
 
-    driver.close()
+    driver.quit()
 
     # creation of entire list
     list_of_timings.append(list_of_occupancies)
