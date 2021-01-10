@@ -20,8 +20,8 @@ list_of_timings = [["Bishan ", "Century ", "JCube  ", "Keat   ", "Kebun  ", "Bed
 LINK = "https://smartentry.org/status/gymmboxx"
 
 # token and app name
-TOKEN = "1515402417:AAFyxj3pruXCOqF5zUsFgeyc15CBrGmXSWA"
-APP_NAME = "https://gymmbott.herokuapp.com/"
+TOKEN = os.environ.get("TOKEN")
+APP_NAME = os.environ.get("APP_NAME")
 
 START_MESSAGE = "*I can send you current gymmboxx capacities!!*\n" + \
                 "_I am in no way affliated to gymmboxx, just a fan  :)_\n\n" + \
