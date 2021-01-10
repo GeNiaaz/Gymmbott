@@ -8,6 +8,10 @@ from datetime import datetime
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
 
+PORT = int(os.environ.get('PORT', '8443'))
+# Define a few command handlers. These usually take the two arguments update and
+# context. Error handlers also receive the raised TelegramError object in error.
+
 # list creation
 list_of_timings = [["Bishan ", "Century ", "JCube  ", "Keat   ", "Kebun  ", "Bedok  ", "Canberra "]]
 # url to crawl
@@ -166,7 +170,7 @@ def get_cnbera_text():
 
 def main():
    # Create updater and pass in Bot's API token.
-   updater = Updater(token=TOKEN, use_context=True)
+   updater = Updater(TOKEN, use_context=True)
    # Get dispatcher to register handlers
    dispatcher = updater.dispatcher
 
@@ -181,9 +185,16 @@ def main():
    dispatcher.add_handler(CommandHandler('bedok', get_bedok_gym))
    dispatcher.add_handler(CommandHandler('canberra', get_cnbera_gym))
 
-   # start the bot
-   updater.start_polling()
-   # stop
+    # Start the Bot
+   updater.start_webhook(listen="0.0.0.0",
+                        port=PORT,
+                        url_path=TOKEN)
+    # updater.bot.set_webhook(url=settings.WEBHOOK_URL)
+   updater.bot.set_webhook(APP_NAME + TOKEN)
+
+   # Run the bot until you press Ctrl-C or the process receives SIGINT,
+   # SIGTERM or SIGABRT. This should be used most of the time, since
+   # start_polling() is non-blocking and will stop the bot gracefully.
    updater.idle()
    
 if __name__ == '__main__':
