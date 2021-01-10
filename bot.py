@@ -146,6 +146,8 @@ def print_list(list, index):
         final_str.append(gym_name + capacity_level + cap_str + "\n") 
         counter += 1
 
+    list_of_timings = [["Bishan ", "Century ", "JCube  ", "Keat   ", "Kebun  ", "Bedok  ", "Canberra "]]
+
     if (index < 7):
         return curr_time_str + final_str[index]
     else:
@@ -190,7 +192,7 @@ def main():
    # Get dispatcher to register handlers
    dispatcher = updater.dispatcher
    
-   list_of_timings = [["Bishan ", "Century ", "JCube  ", "Keat   ", "Kebun  ", "Bedok  ", "Canberra "]]
+#    list_of_timings = [["Bishan ", "Century ", "JCube  ", "Keat   ", "Kebun  ", "Bedok  ", "Canberra "]]
 
    # answer commands
    dispatcher.add_handler(CommandHandler('start', start))
