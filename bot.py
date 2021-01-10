@@ -189,6 +189,8 @@ def main():
    updater = Updater(TOKEN, use_context=True)
    # Get dispatcher to register handlers
    dispatcher = updater.dispatcher
+   
+   list_of_timings = [["Bishan ", "Century ", "JCube  ", "Keat   ", "Kebun  ", "Bedok  ", "Canberra "]]
 
    # answer commands
    dispatcher.add_handler(CommandHandler('start', start))
