@@ -90,7 +90,7 @@ Args: website_link = string; link of website to be crawled
 Returns: jobs_link = list; list of jobs 
 '''
 def crawl(link):
-    driver = webdriver.Chrome("/chromedriver.exe")
+    driver = webdriver.Chrome("./chromedriver.exe")
     driver.get(link)
     time.sleep(2)
 
