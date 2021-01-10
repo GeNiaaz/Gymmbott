@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 import time
 import logging
+import os
 from os import environ
 from datetime import datetime
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
