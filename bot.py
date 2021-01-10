@@ -6,7 +6,7 @@ import logging
 import os
 from os import environ
 from datetime import datetime
-from pytx import timezone
+from pytz import timezone
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
 logger = logging.getLogger(__name__)
