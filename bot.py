@@ -18,7 +18,7 @@ list_of_timings = [["Bishan ", "Century ", "JCube  ", "Keat   ", "Kebun  ", "Bed
 # url to crawl
 LINK = "https://smartentry.org/status/gymmboxx"
 
-TOKEN = environ['TOKEN']
+TOKEN = "1515402417:AAFyxj3pruXCOqF5zUsFgeyc15CBrGmXSWA"
 APP_NAME = environ['APP_NAME']
 
 START_MESSAGE = "*I can send you current gymmboxx capacities!!*\n" + \
