@@ -23,7 +23,7 @@ TOKEN = "1515402417:AAFyxj3pruXCOqF5zUsFgeyc15CBrGmXSWA"
 APP_NAME = "https://gymbott.herokuapp.com/"
 
 START_MESSAGE = "*I can send you current gymmboxx capacities!!*\n" + \
-                "_I am in no way affliated to gymmboxx, just a fan :)_\n\n" + \
+                "_I am in no way affliated to gymmboxx, just a fan  :)_\n\n" + \
                 "Get capacity for " + \
                 "/all : all gymmboxx\n" + \
                 "/bishan : Bishan gymmboxx\n" + \
