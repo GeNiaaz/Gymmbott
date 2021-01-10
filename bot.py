@@ -17,7 +17,7 @@ PORT = int(os.environ.get('PORT', '8443'))
 list_of_timings = [["Bishan ", "Century ", "JCube  ", "Keat   ", "Kebun  ", "Bedok  ", "Canberra "]]
 # url to crawl
 LINK = "https://smartentry.org/status/gymmboxx"
-# TOKEN = environ['TOKEN'] 
+
 TOKEN = environ['TOKEN']
 APP_NAME = environ['APP_NAME']
 
