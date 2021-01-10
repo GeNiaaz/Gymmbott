@@ -40,6 +40,12 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 updater = Updater(token=TOKEN, use_context=True)
 dispatcher = updater.dispatcher
 
+# error method
+def error(update, context):
+    """Log Errors caused by Updates."""
+    logger.warning('Update "%s" caused error "%s"', update, context.error)
+
+
 def start(update, context):
     context.bot.send_message(chat_id=update.message.chat_id, text=START_MESSAGE, parse_mode= 'Markdown')
 
@@ -83,7 +89,7 @@ Args: website_link = string; link of website to be crawled
 Returns: jobs_link = list; list of jobs 
 '''
 def crawl(link):
-    driver = webdriver.Chrome()
+    driver = webdriver.Chrome("/chromedriver.exe")
     driver.get(link)
     time.sleep(2)
 
@@ -185,6 +191,9 @@ def main():
    dispatcher.add_handler(CommandHandler('kebun', get_kebun_gym))
    dispatcher.add_handler(CommandHandler('bedok', get_bedok_gym))
    dispatcher.add_handler(CommandHandler('canberra', get_cnbera_gym))
+
+   # log all errors
+   dispatcher.add_error_handler(error)
 
     # Start the Bot
    updater.start_webhook(listen="0.0.0.0",
