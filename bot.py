@@ -7,7 +7,7 @@ import os
 from os import environ
 from datetime import datetime
 from pytz import timezone
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+from telegram.ext import Updater, ConversationHandler, CommandHandler, MessageHandler, Filters
 
 logger = logging.getLogger(__name__)
 
@@ -93,6 +93,24 @@ def get_bedok_gym(update, context):
 def get_cnbera_gym(update, context):
     str = get_cnbera_text()
     context.bot.send_message(chat_id=update.message.chat_id, text=str, parse_mode= 'Markdown')
+
+def schedule_handler(update, context):
+    context.bot.send_message(
+        chat_id=update.message.chat_id,
+         text = "What days would you like to schedule the updates for?\n" + \
+                "eg, 1 3 5 would be monday, wednesday and friday")
+    return Days
+
+def days (update, context): 
+    return Hour
+
+def hour (update, context): 
+    return Gym
+
+def gym (update, context): 
+    return 0
+
+    
 
 
 
@@ -207,6 +225,21 @@ def main():
    dispatcher.add_handler(CommandHandler('kebun', get_kebun_gym))
    dispatcher.add_handler(CommandHandler('bedok', get_bedok_gym))
    dispatcher.add_handler(CommandHandler('canberra', get_cnbera_gym))
+
+   # conversations
+   dispatcher.add_handler(conv_handler)
+
+   conv_handler = ConversationHandler(
+       entry_points = [CommandHandler("schedule", schedule_handler],
+       states = {
+           Days : [MessageHandler(filters=None, callback=name)],
+           Hour : [MessageHandler(filters=None, callback=hour)],
+           Gym  : [MessageHandler(filters=None, callback=gym)]
+       },
+       fallbacks = [CommandHandler("cancel", cancel)]
+   )
+
+   dispatcher.add_handler(conv_handler)
 
    # log all errors
    dispatcher.add_error_handler(error)
