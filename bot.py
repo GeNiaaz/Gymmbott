@@ -11,7 +11,7 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
 logger = logging.getLogger(__name__)
 
-PORT = int(os.environ.get('PORT', '8443'))
+# PORT = int(os.environ.get('PORT', '8443'))
 # Define a few command handlers. These usually take the two arguments update and
 # context. Error handlers also receive the raised TelegramError object in error.
 
@@ -21,8 +21,8 @@ list_of_timings = [["Bishan ", "Century ", "JCube  ", "Keat   ", "Kebun  ", "Bed
 LINK = "https://smartentry.org/status/gymmboxx"
 
 # token and app name
-TOKEN = os.environ.get("TOKEN")
-APP_NAME = os.environ.get("APP_NAME")
+TOKEN = "1451957453:AAH4MqtpohxSjJfKJPE1ufjXcaB6jgM2tPY"
+# APP_NAME = os.environ.get("APP_NAME")
 
 START_MESSAGE = "*I can send you current gymmboxx capacities!!*\n" + \
                 "_I am in no way affliated to gymmboxx, just a fan  :)_\n\n" + \
@@ -37,14 +37,15 @@ START_MESSAGE = "*I can send you current gymmboxx capacities!!*\n" + \
                 "/canberra : Canberra gymmboxx"
 
 # chromedriver setup
+'''
 chrome_options = webdriver.ChromeOptions()
-# chrome_options.binary_location = "/app/.apt/usr/bin/google-chrome"
 chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
 chrome_options.add_argument("--headless")
 chrome_options.add_argument("--disable-dev-shm-usage")
 chrome_options.add_argument("--no-sandbox")
-# driver = webdriver.Chrome(executable_path="/app/.chromedriver/bin/chromedriver", chrome_options=chrome_options)
-driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
+'''
+# driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"))
+driver = webdriver.Chrome()
 
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',level=logging.INFO)
@@ -210,6 +211,15 @@ def main():
    # log all errors
    dispatcher.add_error_handler(error)
 
+
+   # CODE TO RUN LOCALLY
+   updater.start_polling()
+   updater.idle()
+
+
+
+   '''
+    CODE FOR HEROKU
     # Start the Bot
    updater.start_webhook(listen="0.0.0.0",
                         port=PORT,
@@ -221,6 +231,7 @@ def main():
    # SIGTERM or SIGABRT. This should be used most of the time, since
    # start_polling() is non-blocking and will stop the bot gracefully.
    updater.idle()
+   '''
    
 if __name__ == '__main__':
    main()
