@@ -98,6 +98,12 @@ def get_credits(update, context):
          "If you have any cool ideas or feedback please let us know on tele @GeNiaaz"
     context.bot.send_message(chat_id=update.message.chat_id, text=str, parse_mode= 'Markdown')
 
+def get_info(update, context):
+    str = "We are currently working on a scheduling feature that allows the bot to send weekly updates at certain times," + \
+         "but in the meanwhile, you can achieve the same effect by scheduling telegram to send messages on a certain date" + \
+              "/ time!"
+    context.bot.send_message(chat_id=update.message.chat_id, text=str, parse_mode= 'Markdown')
+
 
 
 '''
@@ -212,6 +218,7 @@ def main():
    dispatcher.add_handler(CommandHandler('bedok', get_bedok_gym))
    dispatcher.add_handler(CommandHandler('canberra', get_cnbera_gym))
    dispatcher.add_handler(CommandHandler('credits', get_credits))
+   dispatcher.add_handler(CommandHandler('info', get_info))
 
    # log all errors
    dispatcher.add_error_handler(error)
