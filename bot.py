@@ -93,6 +93,11 @@ def get_cnbera_gym(update, context):
     str = get_cnbera_text()
     context.bot.send_message(chat_id=update.message.chat_id, text=str, parse_mode= 'Markdown')
 
+def get_credits(update, context):
+    str = "We will upgrade this to include more features! Stay tuned :)))" + \
+         "If you have any cool ideas or feedback please let us know on tele @GeNiaaz"
+    context.bot.send_message(chat_id=update.message.chat_id, text=str, parse_mode= 'Markdown')
+
 
 
 '''
@@ -206,6 +211,7 @@ def main():
    dispatcher.add_handler(CommandHandler('kebun', get_kebun_gym))
    dispatcher.add_handler(CommandHandler('bedok', get_bedok_gym))
    dispatcher.add_handler(CommandHandler('canberra', get_cnbera_gym))
+   dispatcher.add_handler(CommandHandler('credits', get_credits))
 
    # log all errors
    dispatcher.add_error_handler(error)
